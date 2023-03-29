@@ -11,9 +11,18 @@ public class EntryPoint extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
-        
+       
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Scene.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root);
+
+        FXMLController controller = loader.getController();
+        
+		/*
+		 * Model model = new Model(); 
+		 * controller.setModel(model);
+		 */
+        
         scene.getStylesheets().add("/styles/Styles.css");
         scene.getRoot().setStyle("-fx-font-family: 'Arial'");
 
